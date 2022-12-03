@@ -1,0 +1,15 @@
+{
+    "mongodb": {
+        "host": "localhost",
+        "port": "27017",
+        "dbname": "quotes"
+    },
+
+    "express": {
+        "port": "3000"
+    }
+
+
+
+
+}
