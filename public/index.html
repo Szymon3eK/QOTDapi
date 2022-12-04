@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QOTDapi - dodawanie cytatow przez spolecznosc</title>
+  </head>
+  <body>
+    <h1>QOTDapi - dodawanie cytatow przez spolecznosc</h1>
+    <input type="text" placeholder="Wpisz autora cytatu" id="autor" />
+    <input type="text" placeholder="Wpisz cytat" id="cytat" />
+    <br />
+    <p>Zaznacz ptaszka!</p>
+    <input type="checkbox" id="ptaszek" />
+    <br />
+    <br />
+    <input
+      type="submit"
+      value="Wyslij cytat do bazy danych"
+      onclick="wyslij()"
+    />
+    <br />
+    <div id="message"></div>
+  </body>
+  <script src="script.js"></script>
+</html>

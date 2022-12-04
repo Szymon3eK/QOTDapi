@@ -2,11 +2,12 @@
     "mongodb": {
         "host": "localhost",
         "port": "27017",
-        "dbname": "quotes"
+        "dbname": "qotd"
     },
 
     "express": {
-        "port": "3000"
+        "apiport": "3000",
+        "publicport": "5000"
     }
 
 
