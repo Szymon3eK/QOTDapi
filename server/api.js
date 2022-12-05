@@ -36,7 +36,8 @@ app.get('/add', (req, res) => {
     var cytatreq = req.query.cytat;
     var autorreq = req.query.autor;
 
-    res.send(`[+] Dodano cytat: ${cytatreq} autor: ${autorreq}`);
+    res.json({ status: "OK", cytat: cytatreq, autor: autorreq });
+
     console.table({ cytatreq, autorreq });
 
     async function add() {
