@@ -1,4 +1,8 @@
 {
+    "web": {
+        "domain": "localhost"
+    },
+
     "mongodb": {
         "host": "localhost",
         "port": "27017",
