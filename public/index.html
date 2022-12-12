@@ -7,23 +7,26 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <title>QOTDapi - dodawanie cytatow przez spolecznosc</title>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   </head>
   <body>
+    <div id = "kontener" class = "neonText">
+    <br />
     <h1>QOTDapi - dodawanie cytatow przez spolecznosc</h1>
-    <input type="text" placeholder="Wpisz autora cytatu" id="autor" />
     <input type="text" placeholder="Wpisz cytat" id="cytat" />
     <br />
     <br />
-    <div class = "g-recaptcha" data-sitekey = "6LeRW1UjAAAAALdL7baioNP4n2JunNQv5hcQYIML"></div>
+    <input type="text" placeholder="Wpisz autora cytatu" id="autor" />
     <br />
     <br />
-    <input
-      type="submit"
-      value="Wyslij cytat do bazy danych"
-      onclick="wyslij()"
-    />
+    <div id = "captcha" class = "g-recaptcha" data-sitekey = "6LeRW1UjAAAAALdL7baioNP4n2JunNQv5hcQYIML"></div>
+    <br />
+    <br />
+    <input type="submit" value="Wyslij cytat do bazy danych" onclick="wyslij()"/>
+    <br />
     <br />
     <div id="message"></div>
+    </div>
   </body>
   <script src="script.js"></script>
   <script src = "scriptstyle.js"></script>
