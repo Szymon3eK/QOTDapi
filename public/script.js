@@ -1,3 +1,20 @@
+fetch(`http://${window.location.hostname}:3000/get`).then((response) =>
+  response.json().then((data) => {
+    if (data.status == "OK" || data.status == "WARNING") {
+          document.getElementById("cytatdiv").innerHTML = `"${data.cytat}"`;
+          document.getElementById("autordiv").innerHTML = data.autor;
+      } else {
+        document.getElementById("autordiv").style.color = "red";
+        document.getElementById("autordiv").style.fontSize = "35px";
+        document.getElementById("autordiv").innerHTML = "Wystąpił błąd! (API connect)";
+      }
+    })
+).catch((error) => {
+  document.getElementById("autordiv").style.color = "red";
+  document.getElementById("autordiv").style.fontSize = "35px";
+  document.getElementById("autordiv").innerHTML = "Wystąpił błąd!";
+});
+
 
 function wyslij() {
   var response = grecaptcha.getResponse();
@@ -26,9 +43,7 @@ function wysylaniedobazy() {
   var cytat = document.getElementById("cytat").value;
   var message = document.getElementById("message");
 
-  fetch(
-    `http://${window.location.hostname}:3000/add?autor=${autor}&cytat=${cytat}`
-  ).then((response) =>
+  fetch(`http://${window.location.hostname}:3000/add?autor=${autor}&cytat=${cytat}`).then((response) =>
     response.json().then((data) => {
       console.log(data);
       if (data.status == "OK") {
@@ -42,7 +57,7 @@ function wysylaniedobazy() {
 
 function notsuccess(powod, kasowanie) {
 
-  var audio = new Audio("etc\soundboard\error.mp3");
+  var audio = new Audio("./soundboard/error.mp3");
 
   var autor = document.getElementById("autor");
   var cytat = document.getElementById("cytat");
@@ -63,6 +78,9 @@ function notsuccess(powod, kasowanie) {
 }
 
 function success(data) {
+
+  var audio = new Audio("./soundboard/success.mp3");
+
   var autor = document.getElementById("autor");
   var cytat = document.getElementById("cytat");
   var message = document.getElementById("message");
@@ -70,5 +88,6 @@ function success(data) {
   autor.value = "";
   cytat.value = "";
   message.style.color = "green";
-  message.innerHTML = `Dodano cytat! <br><br> Cytat: ${data.cytat} <br> Autor: ${data.autor}`;
+  message.innerHTML = `<span style = 'font-size: 35px'>Dodano cytat!</span> <br><br> Cytat: ${data.cytat} <br> Autor: ${data.autor}`;
+  audio.play();
 }

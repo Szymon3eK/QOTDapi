@@ -1,4 +1,5 @@
 const config = require('../config.json');
+var path = require("path");
 
 const express = require("express");
 const express_static = require("express-static");
@@ -9,11 +10,8 @@ app.listen(port, () => {
     console.log(`[+] Serwer PUBLIC uruchomiony PORT: ${port}`);
 });
 
-app.use('/config', (req, res) => {
-    res.json(config);
-});
-
-console.log(__dirname);
-
 app.use(express.static(__dirname + "/../public"));
 
+app.get("*", function (req, res) {
+  res.status(404).sendFile(path.resolve(__dirname + "/../html/404page/index.html"));
+});
